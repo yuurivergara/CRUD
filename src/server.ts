@@ -1,6 +1,9 @@
 import express from "express";
+const routes = require("./routes");
 const app = express();
+require("./database/index");
 
-app.listen(8181, () => {
-  console.log(`O ${process.env.PROJECT_NAME} iniciou!`);
-});
+app.use(express.json());
+app.use(routes);
+app.use(express.urlencoded({ extended: true }));
+app.listen(8181);

@@ -2,9 +2,9 @@
   "compilerOptions": {
     "target": "es2017",
     "module": "CommonJS",
-    "esModuleInterop": true,   
-    "allowJs": true, 
-    "forceConsistentCasingInFileNames": true,   
+    "esModuleInterop": true,
+    "allowJs": true,
+    "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "outDir": "./dist"
   }
