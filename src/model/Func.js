@@ -9,10 +9,15 @@ class Func extends Model {
         cpf: DataTypes.STRING,
         bio: DataTypes.TEXT,
         avatar: DataTypes.TEXT,
+        vendas: DataTypes.TEXT,
+        createdAt: DataTypes.DATE,
+        updatedAt: DataTypes.DATE,
       },
       {
         sequelize,
         tableName: "cad_func",
+        createdAt: true,
+        updatedAt: true,
       }
     );
   }
