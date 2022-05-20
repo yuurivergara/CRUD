@@ -5,7 +5,7 @@ module.exports = {
   password: "E20101510y@",
   database: "CRUD",
   define: {
-    underscored: true,
     timestamps: true,
+    underscored: true,
   },
 };

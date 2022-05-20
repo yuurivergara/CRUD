@@ -1,8 +1,7 @@
 "use strict";
-
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("cad_func", {
+    await queryInterface.createTable("cadfunc", {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -30,22 +29,18 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false,
       },
-      vendas: {
-        type: Sequelize.TEXT,
-        allowNull: true,
-      },
       created_at: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
       updated_at: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATEONLY,
         allowNull: false,
       },
     });
   },
 
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("cad_func");
+    await queryInterface.dropTable("cadfunc");
   },
 };

@@ -7,18 +7,23 @@ const verifyJWT = require("./verifyJWT");
 
 // ROTAS RELACIONADAS À FUNCIONÁRIOS
 
-routes.get("/funcionarios/:userId", verifyJWT, FuncController.listOne); // Lista um funcionário
-routes.get("/funcionarios", verifyJWT, FuncController.list); // Lista Funcionários
-routes.post("/funcionarios", verifyJWT, FuncController.store); // Adiciona Funcionários
-routes.put("/funcionarios/:userId", verifyJWT, FuncController.update); // Atualiza info dos funcionários
-routes.delete("/funcionarios/:userId", verifyJWT, FuncController.destroy); // Deleta o funcionário
+routes.get("/funcionarios/list/:vendedor", verifyJWT, FuncController.listOne); // Lista um funcionário
+routes.get("/funcionarios/list", verifyJWT, FuncController.list); // Lista Funcionários
+routes.post("/funcionarios/new", verifyJWT, FuncController.store); // Adiciona Funcionários
+routes.put("/funcionarios/edit/:userId", verifyJWT, FuncController.update); // Atualiza info dos funcionários
+routes.delete(
+  "/funcionarios/delete/:userId",
+  verifyJWT,
+  FuncController.destroy
+); // Deleta o funcionário
 
 // ROTAS RELACIONADAS À LISTA DE VEICULOS.
 
-routes.post("/veiculos/add", verifyJWT, VeiculosController.vstore); // Adquirir veiculo para a loja
-routes.put("/veiculos/update/:userId", verifyJWT, VeiculosController.vupdate);
+routes.post("/veiculos/new", verifyJWT, VeiculosController.vstore); // Adquirir veiculo para a loja
+routes.put("/veiculos/:veicId/sale/", verifyJWT, VeiculosController.venda);
+routes.put("/veiculos/:veicId/reserv/", verifyJWT, VeiculosController.reserva);
 routes.delete(
-  "/veiculos/remover/:userId",
+  "/veiculos/delete/:userId",
   verifyJWT,
   VeiculosController.vdestroy
 ); // Remove um veiculo da loja

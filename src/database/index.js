@@ -8,6 +8,7 @@ const connection = new Sequelize(dbConfig);
 Func.init(connection);
 Veiculos.init(connection);
 
-// Func.associate(connection.models);
+Func.associate(connection.models);
+Veiculos.associate(connection.models);
 
 module.exports = connection;

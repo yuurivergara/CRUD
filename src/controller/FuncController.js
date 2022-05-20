@@ -12,13 +12,13 @@ module.exports = {
     return res.status(204).send();
   },
   async listOne(req, res) {
-    const { userId } = req.params;
-    const funcOne = await Func.findOne({
-      where: {
-        id: userId,
+    const { vendedor } = req.params;
+    const vend = await Func.findByPk(vendedor, {
+      include: {
+        association: "vendas",
       },
     });
-    return funcOne ? res.status(200).json(funcOne) : res.status(204).send();
+    return res.json(vend);
   },
   async list(req, res) {
     const funcs = await Func.findAll().catch((erro) => {
@@ -30,14 +30,13 @@ module.exports = {
   },
   async store(req, res) {
     try {
-      const { name, email, bio, cpf, avatar, vendas } = req.body;
+      const { name, email, bio, cpf, avatar } = req.body;
 
       const func = await Func.create({
         name,
         email,
         bio, // Cadastro de funcionários
         avatar,
-        vendas,
         cpf,
       });
 

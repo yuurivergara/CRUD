@@ -7,7 +7,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         primaryKey: true,
-        allowNull: true,
+        allowNull: false,
       },
       marca: {
         type: Sequelize.STRING,
@@ -31,23 +31,25 @@ module.exports = {
       },
       chassi: {
         type: Sequelize.STRING,
+        unique: true,
         allowNull: false,
       },
-      precoVenda: {
+      pvenda: {
         type: Sequelize.FLOAT,
         allowNull: true,
       },
-      valorReserva: {
+      preserva: {
         type: Sequelize.FLOAT,
         allowNull: true,
+      },
+      pcompra: {
+        type: Sequelize.FLOAT,
+        allowNull: false,
       },
       status: {
         type: Sequelize.STRING,
+        defaultValue: "disponivel",
         allowNull: false,
-      },
-      vendedor: {
-        type: Sequelize.STRING,
-        allowNull: true,
       },
       created_at: {
         type: Sequelize.DATE,

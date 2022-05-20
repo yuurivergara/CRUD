@@ -10,12 +10,10 @@ class Veiculos extends Model {
         km: DataTypes.INTEGER,
         cor: DataTypes.STRING,
         chassi: DataTypes.STRING,
-        precoVenda: DataTypes.FLOAT,
-        valorReserva: DataTypes.FLOAT,
+        pvenda: DataTypes.FLOAT,
+        pcompra: DataTypes.FLOAT,
+        preserva: DataTypes.FLOAT,
         status: DataTypes.STRING,
-        createdAt: DataTypes.DATE,
-        updatedAt: DataTypes.DATE,
-        vendedor: DataTypes.STRING,
       },
       {
         sequelize,
@@ -24,6 +22,13 @@ class Veiculos extends Model {
         updatedAt: true,
       }
     );
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Func, {
+      foreignKey: "vendedor",
+      as: "finv",
+    });
   }
 }
 

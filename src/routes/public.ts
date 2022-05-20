@@ -16,7 +16,8 @@ publicr.post("/admin/login", (req, res) => {
   res.status(401).end();
 });
 
-publicr.get("/veiculos/listar", VeiculosController.vlist); // Lista todos veiculos da loja
-publicr.get("/veiculos/listar/:userId", VeiculosController.vlistOne); // Lista um unico veiculo da loja
+publicr.get("/veiculos/list", VeiculosController.vlist); // Lista todos veiculos da loja
+publicr.get("/veiculos/list/:userId", VeiculosController.vlistOne); // Lista um unico veiculo da loja
+publicr.get("/veiculos/list/filter/:vstatus", VeiculosController.listStatus); // Lista veiculos por status
 
 module.exports = publicr;
